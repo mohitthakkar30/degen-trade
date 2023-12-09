@@ -24,17 +24,17 @@ export const useTradingCompRead = ({
     });
   return { data, isError, isLoading, error, refetch, ...others };
 };
-export const useTradingCompTime = (name: string) => {
-  const startTime = useTradingCompRead({
+export const useTradingCompTime = (contractAddress: string) => {
+  const startTime = useTradingCompRead({contractAddress,
     functionName: "startTime",
     args: [],
   });
 
-  const regTime = useTradingCompRead({
+  const regTime = useTradingCompRead({contractAddress,
     functionName: "regTime",
     args: [],
   });
-  const endTime = useTradingCompRead({
+  const endTime = useTradingCompRead({contractAddress,
     functionName: "endTime",
     args: [],
   });
@@ -42,18 +42,19 @@ export const useTradingCompTime = (name: string) => {
   return { regTime, startTime, endTime };
 };
 
-export const useTradingCompStatus = (name: string) => {
-  const data = useTradingCompRead({
+export const useTradingCompStatus = (contractAddress: string) => {
+  const data = useTradingCompRead({contractAddress,
     functionName: "getCompStatus",
     args: [],
   });
   return data;
 };
 
-export const useUserData = (name: string) => {
+export const useUserData = (contractAddress: string, address:string) => {
   const data = useTradingCompRead({
+    contractAddress,
     functionName: "userInfo",
-    args: [],
+    args: [address],
   });
   return data;
 };
@@ -94,11 +95,9 @@ export const useTradingCompWrite = ({contractAddress, functionName, args, ...res
   };
 };
 
-export const useRegister = ( ...others: any) => {
-  const data = useTradingCompWrite({
-    functionName: "registerForComp",
-    args: [],
-    ...others,
+export const useRegister = (contractAddress:string) => {
+  const data = useTradingCompWrite({contractAddress,
+    functionName: "registerForComp"
   });
   return data;
 };

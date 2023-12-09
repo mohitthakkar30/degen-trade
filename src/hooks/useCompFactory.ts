@@ -64,11 +64,9 @@ export const useCompFactoryWrite = ({ functionName, args, ...rest }: any) => {
   };
 };
 
-export const useCreateTradingComp = (args: any, ...others: any) => {
+export const useCreateTradingComp = () => {
   const data = useCompFactoryWrite({
-    functionName: "deployTradingComp",
-    args: [...args],
-    ...others,
+    functionName: "deployTradingComp"
   });
   return data;
 };
