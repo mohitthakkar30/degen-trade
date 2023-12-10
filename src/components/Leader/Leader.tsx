@@ -33,14 +33,12 @@ const Leader = (props: Props) => {
             <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
               {formatAddress(props.address)}
             </p>
-            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-              email@windster.com
-            </p>
+          
           </div>
 
           <div className="flex gap-5">
             <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-              {props?.txCount}
+              {props?.txCount} Txns
             </div>
             <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
               {props?.volume0} {props?.symbol0}

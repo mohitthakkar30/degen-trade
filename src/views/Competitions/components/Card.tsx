@@ -56,7 +56,7 @@ function Card({ name, address }: Props) {
       />
 
       <div className="flex justify-between items-center">
-        <p className=" text-lg">{name}</p>
+        <Link href={`/competitions/${address}`} className=" text-lg">{name}</Link>
         <p
           className={`text-sm ${
             status.data == 2 ? "bg-red-500/50" : "bg-green-500/50"

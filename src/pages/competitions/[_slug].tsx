@@ -12,7 +12,6 @@ type Props = {};
 const trade = (props: Props) => {
   const router = useRouter();
   const { _slug = null } = router.query;
-
   const { error: compErr, data: compData } = useQuery(
     GET_COMPETITION_LEADERBOARD,
     {
@@ -58,7 +57,7 @@ const trade = (props: Props) => {
     <>
       <Header />
       {/* trading comp info */}
-      <div className="flex justify-around items-center bg-white border border-gray-200  shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full border-none p-12">
+      <div className="flex justify-around items-center bg-white border border-gray-200  shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full border-none p-12 ">
         {/* comp details */}
         <div className="flex w-2/4 justify-center ">
           <div className="flex flex-col">
@@ -90,24 +89,27 @@ const trade = (props: Props) => {
         />
       </div>
       {/* trading leader board */}
-      <div className="w-full bg-white border border-gray-200 shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div className="flow-root">
-          <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-            {compData?.userParticipatedTradingCompetitons?.map((user) => {
-              return (
-                <Leader
-                  address={user?.participant}
-                  avatar={user?.participant[0]}
-                  txCount={user?.totalTxns}
-                  volume0={Number(user?.totalVolumeInToken0).toFixed(4)}
-                  volume1={Number(user?.totalVolumeInToken1).toFixed(4)}
-                  symbol0={compData?.tradingCompetiton?.token0?.symbol}
-                  symbol1={compData?.tradingCompetiton?.token1?.symbol}
-                  key={user?.id}
-                />
-              );
-            })}
-          </ul>
+      <div className=" container mx-auto px-12">
+        <p className="text-2xl">Leaderboard</p>
+        <div className="w-full bg-white border border-gray-200 shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <div className="flow-root">
+            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+              {compData?.userParticipatedTradingCompetitons?.map((user) => {
+                return (
+                  <Leader
+                    address={user?.participant}
+                    avatar={user?.participant[0]}
+                    txCount={user?.totalTxns}
+                    volume0={Number(user?.totalVolumeInToken0).toFixed(4)}
+                    volume1={Number(user?.totalVolumeInToken1).toFixed(4)}
+                    symbol0={compData?.tradingCompetiton?.token0?.symbol}
+                    symbol1={compData?.tradingCompetiton?.token1?.symbol}
+                    key={user?.id}
+                  />
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </>
