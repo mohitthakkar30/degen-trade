@@ -33,6 +33,8 @@ export const useTradingCompName = (name: string) => {
 
 export const useCompFactoryWrite = ({ functionName, args, ...rest }: any) => {
   const chainId = useActiveChainId();
+  // console.log("chainId",chainId,contracts.compFactory[chainId as any]);
+  
   const {
     data,
     isError,
@@ -49,7 +51,7 @@ export const useCompFactoryWrite = ({ functionName, args, ...rest }: any) => {
     functionName,
     args,
     chainId,
-    cacheOnBlock: true,
+value:"0",
     ...rest,
   });
   return {
@@ -68,5 +70,7 @@ export const useCreateTradingComp = () => {
   const data = useCompFactoryWrite({
     functionName: "deployTradingComp"
   });
+  console.log("data",data);
+  
   return data;
 };
