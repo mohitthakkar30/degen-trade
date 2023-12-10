@@ -1,12 +1,17 @@
 import Header from "@/components/Header/Header";
 import Leader from "@/components/Leader/Leader";
-import { useTradingCompTime } from "@/hooks/useTradingComp";
+import {
+  useRegister,
+  useTradingCompTime,
+  useUserData,
+} from "@/hooks/useTradingComp";
 import { GET_COMPETITION_LEADERBOARD } from "@/utils/apollo/queries";
 import Image from "next/image";
 import React from "react";
 import { useQuery } from "@apollo/client";
 import Countdown from "react-countdown";
 import { useRouter } from "next/router";
+import { useAccount } from "wagmi";
 type Props = {};
 
 const Trade = (props: Props) => {
@@ -20,6 +25,9 @@ const Trade = (props: Props) => {
       },
     }
   );
+  const { address: account } = useAccount();
+  const { writeAsync: register } = useRegister(_slug);
+  const { data: userData } = useUserData(_slug);
   console.log(`🚀 ~ data:`, compData);
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -77,6 +85,15 @@ const Trade = (props: Props) => {
                 />
               )}{" "}
             </span>
+            {account && (
+              <div>
+                {userData?.hasRegistered ? (
+                  <></>
+                ) : (
+                  <button onClick={register}>Register</button>
+                )}
+              </div>
+            )}
           </div>
         </div>
         {/* comp banner */}
