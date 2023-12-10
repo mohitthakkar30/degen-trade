@@ -9,7 +9,7 @@ import Countdown from "react-countdown";
 import { useRouter } from "next/router";
 type Props = {};
 
-const trade = (props: Props) => {
+const Trade = (props: Props) => {
   const router = useRouter();
   const { _slug = null } = router.query;
 
@@ -114,4 +114,4 @@ const trade = (props: Props) => {
   );
 };
 
-export default trade;
+export default Trade;
