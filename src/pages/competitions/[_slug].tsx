@@ -6,28 +6,31 @@ import Image from "next/image";
 import React from "react";
 import { useQuery } from "@apollo/client";
 import Countdown from "react-countdown";
+import { useRouter } from "next/router";
 type Props = {};
 
 const trade = (props: Props) => {
-  const address = "0x261a85ecb4cdd0c1c3e0978f833c06c8a2252d77";
+  const router = useRouter();
+  const { _slug = null } = router.query;
+
   const { error: compErr, data: compData } = useQuery(
     GET_COMPETITION_LEADERBOARD,
     {
       variables: {
-        id: "0x8c3764cce53baf99cb3c29438dd4ca06367fe93c",
+        id: _slug,
       },
     }
   );
+  console.log(`🚀 ~ data:`, compData);
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      return <Completionist />;
+      return null;
     } else {
       // Render a countdown
       return (
         <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-         
           <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
             <span className="countdown font-mono text-5xl">
               <span style={{ "--value": hours }}></span>
