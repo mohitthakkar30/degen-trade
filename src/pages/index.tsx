@@ -4,6 +4,7 @@ import Header from '@/components/Header/Header'
 import Home from '@/views/Home/Home'
 import Form from '@/components/Form/Form'
 import { useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,6 +30,7 @@ export default function Indexpage() {
       {
         <dialog id="my_modal_1" className="modal">
         <div className="modal-box bg-transparent">
+          <Toaster/>
             <Form />
         </div>
       </dialog>

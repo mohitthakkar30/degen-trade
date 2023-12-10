@@ -54,15 +54,19 @@ function Card({ name, address }: Props) {
         className="rounded-lg"
       />
 
-      {/* <img
-        src="https://cdn.sushi.com/image/upload/f_auto,c_limit,w_48,q_auto/tokens/1/0xdAC17F958D2ee523a2206206994597C13D831ec7.jpg"
-        alt=""
-        className="rounded-full"
-      /> */}
       <div className="flex justify-between items-center">
         <p className=" text-lg">{name}</p>
-        <p className={`text-sm ${status.data == 2 ? "bg-red-500/50" : "bg-green-500/50"} p-1 px-2 rounded-lg`}>
-          {status.data == 0 ? "Registration" : status.data == 1 ? "Ongoing" : "Finished"}</p>
+        <p
+          className={`text-sm ${
+            status.data == 2 ? "bg-red-500/50" : "bg-green-500/50"
+          } p-1 px-2 rounded-lg`}
+        >
+          {status.data == 0
+            ? "Registration"
+            : status.data == 1
+            ? "Ongoing"
+            : "Finished"}
+        </p>
       </div>
       <div className="flex justify-between items-center text-opacity-50">
         <div className="bg-gray-800/50 p-1 px-4 rounded-lg">
@@ -74,7 +78,20 @@ function Card({ name, address }: Props) {
           <p>{endTime}</p>
         </div>
       </div>
-      <div className="btn w-full btn-secondary" >Trade Now</div>
+      <div
+        
+      >
+        {" "}
+        <button className={`btn w-full ${
+          status.data == 0
+            ? "bg-green-700"
+            : status.data == 1
+            ? "bg-blue-700"
+            : "bg-gray-700"
+        }`} disabled={status.data == 2}>
+          {status.data == 0 ? "Register" : status.data == 1 ? "Trade" : "Ended"}
+        </button>
+      </div>
     </div>
   );
 }
