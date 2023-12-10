@@ -1,4 +1,4 @@
-import { useTradingCompStatus, useTradingCompTime } from "@/hooks/useTradingComp";
+import { useRegister, useTradingCompStatus, useTradingCompTime } from "@/hooks/useTradingComp";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -46,6 +46,14 @@ function Card({ name, address }: Props) {
 
   };
 
+  const {writeAsync : registerForComp} = useRegister(address);
+
+  const register = async () => {
+    const address = "0x0c85E0D06F01cBB84b5612B00e757e191fBc0786"
+    const res = registerForComp();
+    console.log("res", res);
+    
+}
 
   return (
     <div className="w-full  p-5 bg-gray-900 rounded-lg space-y-3">
@@ -83,7 +91,7 @@ function Card({ name, address }: Props) {
         
       >
         {" "}
-        <button   className={`btn w-full ${
+        <button onClick={register}   className={`btn w-full ${
           status.data == 0
             ? "bg-green-700"
             : status.data == 1

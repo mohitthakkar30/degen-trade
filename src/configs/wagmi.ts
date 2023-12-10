@@ -11,7 +11,7 @@ export const { chains, publicClient } = configureChains(
 );
 const { connectors } = getDefaultWallets({
     appName: "My RainbowKit App",
-    projectId: "YOUR_PROJECT_ID",
+    projectId: "r1xrnkXFSD92Fd715SqGkluuVwQ_5-YK",
     chains,
 });
 export const wagmiConfig = createConfig({

@@ -1,6 +1,6 @@
 import Header from '@/components/Header/Header';
 import Leader from '@/components/Leader/Leader';
-import { useTradingCompTime } from '@/hooks/useTradingComp';
+import { useRegister, useTradingCompTime } from '@/hooks/useTradingComp';
 import Image from 'next/image';
 import React from 'react'
 
@@ -11,10 +11,6 @@ type Props = {
 
 
 const trade = (props: Props) => {
-
-    const address = "0x261a85ecb4cdd0c1c3e0978f833c06c8a2252d77"
-
-
 
     return (
         <>
@@ -36,7 +32,7 @@ const trade = (props: Props) => {
 
                 <div className="flow-root">
                     <ul  className="divide-y divide-gray-200 dark:divide-gray-700">
-                        <Leader />
+                        <Leader  />
                         <Leader />
                         <Leader />
                         <Leader />
