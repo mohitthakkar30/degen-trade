@@ -1,4 +1,5 @@
 import { useTradingCompStatus, useTradingCompTime } from "@/hooks/useTradingComp";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -82,14 +83,16 @@ function Card({ name, address }: Props) {
         
       >
         {" "}
-        <button className={`btn w-full ${
+        <button   className={`btn w-full ${
           status.data == 0
             ? "bg-green-700"
             : status.data == 1
             ? "bg-blue-700"
             : "bg-gray-700"
         }`} disabled={status.data == 2}>
+          <Link href={'/trade'}>
           {status.data == 0 ? "Register" : status.data == 1 ? "Trade" : "Ended"}
+          </Link>
         </button>
       </div>
     </div>
