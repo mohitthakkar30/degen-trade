@@ -8,7 +8,7 @@ function Home({ }: Props) {
   return (
     <div className="bg-[url('https://img.freepik.com/free-vector/financial-chart-globe-background-forex-trading-stock-market_1017-44838.jpg?w=1480&t=st=1702172333~exp=1702172933~hmac=2c9bfe9402a6956ef6a8bef89859f467058c35902f015ba582e1ccf338674334')] w-screen h-screen backdrop-blur-sm flex flex-col px-10 justify-center">
       <div className='text-8xl w-3/4 break-words'>
-        Create and Trade
+      Showcase your trading skills and earn rewards.
       </div>
       <div>
 
