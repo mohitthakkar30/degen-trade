@@ -1,5 +1,6 @@
 export enum ChainId {
   SCROLL_SEPOLIA = 534351,
   BASE_GOERLI = 84531,
-  
+  ARBITRUM_GOERLI = 421613,
+  ZKEVM_GOERLI = 1442,
 }

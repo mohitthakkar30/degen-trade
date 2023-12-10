@@ -1,12 +1,12 @@
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { scrollSepolia, baseSepolia, arbitrumSepolia, polygonMumbai, mantleTestnet, polygonZkEvmTestnet, celoAlfajores, baseGoerli } from "wagmi/chains";
+import { scrollSepolia, baseSepolia, arbitrumSepolia, polygonMumbai, mantleTestnet, polygonZkEvmTestnet, celoAlfajores, baseGoerli, arbitrumGoerli } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, publicClient } = configureChains(
-    [polygonMumbai, polygonZkEvmTestnet, mantleTestnet ,arbitrumSepolia, baseGoerli, scrollSepolia, celoAlfajores ],
+    [baseGoerli, polygonZkEvmTestnet ,arbitrumGoerli , scrollSepolia ],
     [publicProvider()]
 );
 const { connectors } = getDefaultWallets({
