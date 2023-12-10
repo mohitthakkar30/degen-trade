@@ -15,8 +15,10 @@ function Competitions({ }: Props) {
 
     <div className="grid grid-cols-4 gap-2">
     {data?.tradingCompetitons
+    //@ts-ignore
     .map((comp:any, index:any) => {
-      return (<Card name={comp.name} address={comp.id}  />)
+      //@ts-ignore
+      return (<Card key={index} name={comp.name} address={comp.id}  />)
     })}
   </div>
 
